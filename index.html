@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <users>
+            <h1>List user</h1>
+        </users>
+    </main>
+
+    <template id="users-template">
+        <div>
+            <section class="search">
+                <slot></slot>
+                <input type="text" placeholder="Filtrar usuarios" v-model="search">
+            </section>
+            <hr>
+            <section class="list">
+                <user :data="user" v-for="user in searchUsers"></user>
+            </section>
+        </div>
+    </template>
+
+    <template id="user-template">
+        <div class="dividir">
+            <div>
+            <img :src="data.picture" alt="profileImage">
+                <section>
+                    <small>{{ data.idAlbum }}</small>
+                    <h1>{{ data.title }}</h1>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
